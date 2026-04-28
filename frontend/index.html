@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Student Management System</h1>
+
+    <h2>Add Student</h2>
+
+    <form id="studentForm">
+        <input type="text" id="name" placeholder="Enter Name" required>
+        <input type="number" id="rollNumber" placeholder="Enter Roll Number" required>
+        <input type="text" id="class" placeholder="Enter Class" required>
+        <input type="text" id="section" placeholder="Enter Section" required>
+        <input type="number" id="age" placeholder="Enter Age" required>
+
+        <button type="submit">Add Student</button>
+    </form>
+
+    <h2>Student List</h2>
+
+    <button onclick="getStudents()">Load Students</button>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll Number</th>
+                <th>Class</th>
+                <th>Section</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+
+        <tbody id="studentTable">
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
