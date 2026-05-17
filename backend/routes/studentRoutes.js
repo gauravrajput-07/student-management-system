@@ -22,7 +22,7 @@ router.post("/students", async (req, res) => {
       });
     }
 
-    // Check duplicate roll number
+    // For duplicate roll number
     const existingStudent = await Student.findOne({ rollNumber });
 
     if (existingStudent) {
@@ -128,27 +128,26 @@ router.get("/students/:id", async (req, res) => {
 });
 
 
+
 // Search Student by Name
 router.get("/students/search/:name", async (req, res) => {
+
   try {
+
     const students = await Student.find({
       name: { $regex: req.params.name, $options: "i" }
     });
 
-    // Check if no student found
-    if (students.length === 0) {
-      return res.status(404).json({
-        message: "Student not found"
-      });
-    }
-
     res.status(200).json(students);
 
   } catch (error) {
+
     res.status(500).json({
       error: error.message
     });
+
   }
+
 });
 
 

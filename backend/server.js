@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//  BELOW middleware
+//  Down middleware
 app.use("/api", studentRoutes);
 
 // MongoDB Connection

@@ -20,10 +20,19 @@
         <input type="text" id="section" placeholder="Enter Section" required>
         <input type="number" id="age" placeholder="Enter Age" required>
 
+
         <button type="submit">Add Student</button>
     </form>
 
     <h2>Student List</h2>
+
+    <input type="text" id="searchInput" placeholder="Search Student by Name" />
+
+    <button onclick="searchStudents()">
+        Search
+
+
+    </button>
 
     <button onclick="getStudents()">Load Students</button>
 
@@ -35,6 +44,7 @@
                 <th>Class</th>
                 <th>Section</th>
                 <th>Age</th>
+                <th>Action</th>
             </tr>
         </thead>
 
