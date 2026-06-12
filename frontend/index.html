@@ -20,23 +20,39 @@
         <input type="text" id="section" placeholder="Enter Section" required>
         <input type="number" id="age" placeholder="Enter Age" required>
 
-
         <button type="submit">Add Student</button>
     </form>
 
+    <h2>Student Dashboard</h2>
+
+    <div class="dashboard">
+
+        <div class="card">
+            <h3>Total Students</h3>
+            <p id="totalStudents">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Average Age</h3>
+            <p id="averageAge">0</p>
+        </div>
+
+    </div>
+
     <h2>Student List</h2>
 
-    <input type="text" id="searchInput" placeholder="Search Student by Name" />
+    <input type="text" id="searchInput" placeholder="Search Student by Name">
 
     <button onclick="searchStudents()">
         Search
-
-
     </button>
 
-    <button onclick="getStudents()">Load Students</button>
+    <button onclick="getStudents()">
+        Load Students
+    </button>
 
     <table border="1">
+
         <thead>
             <tr>
                 <th>Name</th>
@@ -50,6 +66,7 @@
 
         <tbody id="studentTable">
         </tbody>
+
     </table>
 
     <script src="script.js"></script>
