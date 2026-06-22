@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Student Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,18 +12,53 @@
 
     <h1>Student Management System</h1>
 
+    <!-- Add Student Form -->
     <h2>Add Student</h2>
 
     <form id="studentForm">
-        <input type="text" id="name" placeholder="Enter Name" required>
-        <input type="number" id="rollNumber" placeholder="Enter Roll Number" required>
-        <input type="text" id="class" placeholder="Enter Class" required>
-        <input type="text" id="section" placeholder="Enter Section" required>
-        <input type="number" id="age" placeholder="Enter Age" required>
 
-        <button type="submit">Add Student</button>
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter Name"
+            required
+        >
+
+        <input
+            type="number"
+            id="rollNumber"
+            placeholder="Enter Roll Number"
+            required
+        >
+
+        <input
+            type="text"
+            id="class"
+            placeholder="Enter Class"
+            required
+        >
+
+        <input
+            type="text"
+            id="section"
+            placeholder="Enter Section"
+            required
+        >
+
+        <input
+            type="number"
+            id="age"
+            placeholder="Enter Age"
+            required
+        >
+
+        <button type="submit">
+            Add Student
+        </button>
+
     </form>
 
+    <!-- Dashboard -->
     <h2>Student Dashboard</h2>
 
     <div class="dashboard">
@@ -39,9 +75,14 @@
 
     </div>
 
+    <!-- Search -->
     <h2>Student List</h2>
 
-    <input type="text" id="searchInput" placeholder="Search Student by Name">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search Student by Name"
+    >
 
     <button onclick="searchStudents()">
         Search
@@ -51,9 +92,11 @@
         Load Students
     </button>
 
+    <!-- Student Table -->
     <table border="1">
 
         <thead>
+
             <tr>
                 <th>Name</th>
                 <th>Roll Number</th>
@@ -62,12 +105,30 @@
                 <th>Age</th>
                 <th>Action</th>
             </tr>
+
         </thead>
 
         <tbody id="studentTable">
         </tbody>
 
     </table>
+
+    <!-- Pagination -->
+    <div style="margin-top:20px; text-align:center;">
+
+        <button onclick="previousPage()">
+            Previous
+        </button>
+
+        <span id="pageNumber" style="margin:0 15px;">
+            Page 1
+        </span>
+
+        <button onclick="nextPage()">
+            Next
+        </button>
+
+    </div>
 
     <script src="script.js"></script>
 

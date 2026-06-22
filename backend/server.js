@@ -2,16 +2,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-//  
-const studentRoutes = require("./routes/studentRoutes");
-
 const app = express();
+
+// Import Routes
+const studentRoutes = require("./routes/studentRoutes");
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
-//  Down middleware
+// Routes
 app.use("/api", studentRoutes);
 
 // MongoDB Connection
@@ -28,6 +28,7 @@ app.get("/", (req, res) => {
   res.send("Student Management Backend is Running");
 });
 
+// Server
 const PORT = 5000;
 
 app.listen(PORT, () => {

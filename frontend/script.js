@@ -1,5 +1,8 @@
 const API_URL = "http://localhost:5000/api/students";
 
+let currentPage = 1;
+const limit = 3;
+
 let editStudentId = null;
 
 // Add / Update Student
@@ -33,7 +36,6 @@ document
                 );
 
                 alert("Student Updated Successfully");
-
                 editStudentId = null;
 
             } else {
@@ -67,15 +69,33 @@ async function getStudents() {
     try {
 
         const response = await fetch(
-            API_URL + "?page=1&limit=100"
+            `${API_URL}?page=${currentPage}&limit=${limit}`
         );
 
         const students = await response.json();
 
-        // Dashboard Statistics
-        document.getElementById("totalStudents").innerText =
-            students.length;
+        // Total Students Count
+        const countResponse = await fetch(
+            "http://localhost:5000/api/students/count"
+        );
 
+        const countData = await countResponse.json();
+
+console.log("Count Data:", countData);
+
+const totalStudentsElement =
+    document.getElementById("totalStudents");
+
+console.log("Element:", totalStudentsElement);
+
+if (totalStudentsElement) {
+    totalStudentsElement.innerText =
+        countData.totalStudents;
+}
+
+        
+
+        // Average Age
         const totalAge = students.reduce(
             (sum, student) => sum + Number(student.age),
             0
@@ -124,6 +144,9 @@ async function getStudents() {
             table.innerHTML += row;
 
         });
+
+        document.getElementById("pageNumber").innerText =
+            `Page ${currentPage}`;
 
     } catch (error) {
 
@@ -247,6 +270,27 @@ async function searchStudents() {
     } catch (error) {
 
         console.error(error);
+
+    }
+
+}
+
+// Pagination
+function nextPage() {
+
+    currentPage++;
+
+    getStudents();
+
+}
+
+function previousPage() {
+
+    if (currentPage > 1) {
+
+        currentPage--;
+
+        getStudents();
 
     }
 
