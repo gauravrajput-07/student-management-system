@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Attendance Management System</title>
+
+<link rel="stylesheet" href="style.css">
+```
+
+</head>
+
+<body>
+
+```
+<nav class="page-navigation">
+    <a href="index.html" class="nav-link">Student Management</a>
+    <a href="attendance.html" class="nav-link active">Attendance Management</a>
+</nav>
+
+<h1>Attendance Management System</h1>
+
+<h2>Mark Student Attendance</h2>
+
+<form id="attendanceForm">
+
+    <label for="attendanceStudent">Select Student</label>
+
+    <select id="attendanceStudent" required>
+        <option value="">Loading students...</option>
+    </select>
+
+    <label for="attendanceDate">Attendance Date</label>
+
+    <input
+        type="date"
+        id="attendanceDate"
+        required
+    >
+
+    <label for="attendanceStatus">Attendance Status</label>
+
+    <select id="attendanceStatus" required>
+        <option value="">Select Status</option>
+        <option value="Present">Present</option>
+        <option value="Absent">Absent</option>
+    </select>
+
+    <button type="submit">Mark Attendance</button>
+
+</form>
+
+<p id="attendanceMessage" role="status"></p>
+
+<h2>Attendance Dashboard</h2>
+
+<div class="dashboard">
+
+    <div class="card">
+        <h3>Total Records</h3>
+        <p id="totalAttendance">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Present</h3>
+        <p id="totalPresent">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Absent</h3>
+        <p id="totalAbsent">0</p>
+    </div>
+
+</div>
+
+<h2>Attendance Records</h2>
+
+<div class="attendance-actions">
+
+    <button type="button" onclick="loadAttendance()">
+        Load All Attendance
+    </button>
+
+    <button type="button" onclick="loadSelectedStudentAttendance()">
+        View Selected Student History
+    </button>
+
+</div>
+
+<div class="table-container">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Roll Number</th>
+                <th>Class</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="attendanceTable">
+            <tr>
+                <td colspan="6">Loading attendance records...</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script src="attendance.js"></script>
+```
+
+</body>
+</html>

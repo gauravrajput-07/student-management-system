@@ -1,137 +1,382 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Management System</title>
-    <link rel="stylesheet" href="style.css">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduManage | Student Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <h1>Student Management System</h1>
+<div class="app-layout">
 
-    <!-- Add Student Form -->
-    <h2>Add Student</h2>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-    <form id="studentForm">
+        <a href="index.html" class="brand">
+            <span class="brand-icon">🎓</span>
+            <span>EduManage<span class="brand-dot">.</span></span>
+        </a>
 
-        <input
-            type="text"
-            id="name"
-            placeholder="Enter Name"
-            required
-        >
+        <p class="sidebar-label">MAIN MENU</p>
 
-        <input
-            type="number"
-            id="rollNumber"
-            placeholder="Enter Roll Number"
-            required
-        >
+        <nav class="sidebar-nav">
 
-        <input
-            type="text"
-            id="class"
-            placeholder="Enter Class"
-            required
-        >
+            <a href="index.html" class="sidebar-link active">
+                <span class="sidebar-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
 
-        <input
-            type="text"
-            id="section"
-            placeholder="Enter Section"
-            required
-        >
+            <a href="#studentForm" class="sidebar-link">
+                <span class="sidebar-icon">＋</span>
+                <span>Add Student</span>
+            </a>
 
-        <input
-            type="number"
-            id="age"
-            placeholder="Enter Age"
-            required
-        >
+            <a href="#studentListSection" class="sidebar-link">
+                <span class="sidebar-icon">☷</span>
+                <span>Student Records</span>
+            </a>
 
-        <button type="submit">
-            Add Student
-        </button>
+            <a href="attendance.html" class="sidebar-link">
+                <span class="sidebar-icon">✓</span>
+                <span>Attendance</span>
+            </a>
 
-    </form>
+        </nav>
 
-    <!-- Dashboard -->
-    <h2>Student Dashboard</h2>
-
-    <div class="dashboard">
-
-        <div class="card">
-            <h3>Total Students</h3>
-            <p id="totalStudents">0</p>
+        <div class="sidebar-bottom">
+            <div class="sidebar-help-icon">💡</div>
+            <h3>Stay Organized!</h3>
+            <p>Manage student records and keep your data up to date.</p>
         </div>
 
-        <div class="card">
-            <h3>Average Age</h3>
-            <p id="averageAge">0</p>
+        <div class="sidebar-footer">
+            <span class="footer-status"></span>
+            Student Portal
+            <span class="footer-version">v1.0</span>
         </div>
 
-    </div>
+    </aside>
 
-    <!-- Search -->
-    <h2>Student List</h2>
 
-    <input
-        type="text"
-        id="searchInput"
-        placeholder="Search Student by Name"
-    >
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
 
-    <button onclick="searchStudents()">
-        Search
-    </button>
+        <!-- TOP BAR -->
+        <header class="topbar">
 
-    <button onclick="getStudents()">
-        Load Students
-    </button>
+            <div class="topbar-left">
+                <p class="breadcrumb">Pages / <strong>Dashboard</strong></p>
+                <h1>Student Dashboard</h1>
+            </div>
 
-    <!-- Student Table -->
-    <table border="1">
+            <div class="topbar-right">
+                <div class="admin-avatar">A</div>
 
-        <thead>
+                <div class="admin-info">
+                    <strong>Administrator</strong>
+                    <span>Management Portal</span>
+                </div>
+            </div>
 
-            <tr>
-                <th>Name</th>
-                <th>Roll Number</th>
-                <th>Class</th>
-                <th>Section</th>
-                <th>Age</th>
-                <th>Action</th>
-            </tr>
+        </header>
 
-        </thead>
 
-        <tbody id="studentTable">
-        </tbody>
+        <!-- WELCOME BANNER -->
+        <section class="welcome-banner">
 
-    </table>
+            <div class="welcome-content">
+                <span class="welcome-tag">YOUR MANAGEMENT SPACE</span>
 
-    <!-- Pagination -->
-    <div style="margin-top:20px; text-align:center;">
+                <h2>Welcome Back! 👋</h2>
 
-        <button onclick="previousPage()">
-            Previous
-        </button>
+                <p>
+                    Manage your students, organize records,
+                    and keep everything running smoothly.
+                </p>
 
-        <span id="pageNumber" style="margin:0 15px;">
-            Page 1
-        </span>
+                <a href="#studentForm" class="welcome-button">
+                    + Add New Student
+                </a>
+            </div>
 
-        <button onclick="nextPage()">
-            Next
-        </button>
+            <div class="welcome-art" aria-hidden="true">
+                <div class="art-circle circle-one"></div>
+                <div class="art-circle circle-two"></div>
+                <div class="art-card">
+                    <span class="art-cap">🎓</span>
+                    <span class="art-lines"></span>
+                    <span class="art-lines short-line"></span>
+                    <span class="art-check">✓</span>
+                </div>
+                <div class="floating-star star-one">✦</div>
+                <div class="floating-star star-two">✧</div>
+            </div>
 
-    </div>
+        </section>
 
-    <script src="script.js"></script>
 
-</body>
+        <!-- SECTION HEADING -->
+        <section class="section-heading">
+            <div>
+                <h2>Overview</h2>
+                <p>Here's what's happening with your student records.</p>
+            </div>
 
-</html>
+            <span class="live-badge">
+                <span class="live-dot"></span>
+                Dashboard
+            </span>
+        </section>
+
+
+        <!-- STATISTICS CARDS -->
+        <section class="stats-grid">
+
+            <article class="stat-card students-card">
+                <div class="stat-top">
+                    <div class="stat-icon">👨‍🎓</div>
+                    <span class="stat-label">STUDENT DATA</span>
+                </div>
+
+                <p class="stat-title">Total Students</p>
+                <h3 id="totalStudents">0</h3>
+                <p class="stat-description">Registered student records</p>
+                <div class="stat-decoration"></div>
+            </article>
+
+
+            <article class="stat-card age-card">
+                <div class="stat-top">
+                    <div class="stat-icon">📊</div>
+                    <span class="stat-label">AGE ANALYSIS</span>
+                </div>
+
+                <p class="stat-title">Average Age</p>
+                <h3 id="averageAge">0</h3>
+                <p class="stat-description">Average age of students</p>
+                <div class="stat-decoration"></div>
+            </article>
+
+
+            <article class="stat-card records-card">
+                <div class="stat-top">
+                    <div class="stat-icon">🗂️</div>
+                    <span class="stat-label">DATABASE</span>
+                </div>
+
+                <p class="stat-title">Record Management</p>
+                <h3>Active</h3>
+                <p class="stat-description">Manage your student records</p>
+                <div class="stat-decoration"></div>
+            </article>
+
+        </section>
+
+
+        <!-- ADD STUDENT -->
+        <section class="content-panel" id="addStudentSection">
+
+            <div class="panel-heading">
+                <div class="panel-heading-left">
+                    <div class="panel-icon purple-icon">＋</div>
+
+                    <div>
+                        <h2>Add New Student</h2>
+                        <p>Enter student information below.</p>
+                    </div>
+                </div>
+
+                <span class="required-note">* Required fields</span>
+            </div>
+
+
+            <form id="studentForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="name">Student Name <span>*</span></label>
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter full name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rollNumber">Roll Number <span>*</span></label>
+                        <input
+                            type="number"
+                            id="rollNumber"
+                            placeholder="Enter roll number"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="class">Class <span>*</span></label>
+                        <input
+                            type="text"
+                            id="class"
+                            placeholder="e.g. B.Tech CSE"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="section">Section <span>*</span></label>
+                        <input
+                            type="text"
+                            id="section"
+                            placeholder="e.g. A"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age <span>*</span></label>
+                        <input
+                            type="number"
+                            id="age"
+                            placeholder="Enter age"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-footer">
+                    <p>🛡️ Student information is stored in your database.</p>
+
+                    <button type="submit" id="submitButton" class="primary-button">
+                        <span>＋</span>
+                        Add Student
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- STUDENT TABLE -->
+        <section class="content-panel student-list-panel" id="studentListSection">
+
+            <div class="panel-heading student-list-heading">
+
+                <div class="panel-heading-left">
+                    <div class="panel-icon blue-icon">☷</div>
+
+                    <div>
+                        <h2>Student Records</h2>
+                        <p>View, search, update, and manage students.</p>
+                    </div>
+                </div>
+
+                <button type="button" class="secondary-button" onclick="getStudents()">
+                    ↻ Refresh Records
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH -->
+            <div class="table-toolbar">
+
+                <div class="search-box">
+                    <span class="search-icon">⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search student by name..."
+                        aria-label="Search student by name"
+                    >
+                </div>
+
+                <button type="button" class="primary-button search-button" onclick="searchStudents()">
+                    Search
+                </button>
+
+            </div>
+
+
+            <!-- TABLE -->
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Roll Number</th>
+                            <th>Class</th>
+                            <th>Section</th>
+                            <th>Age</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTable">
+                        <tr>
+                            <td colspan="6" class="loading-cell">
+                                Loading student records...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+            <!-- PAGINATION -->
+            <div class="pagination">
+
+                <p class="pagination-note">
+                    Manage your student records
+                </p>
+
+                <div class="pagination-controls">
+                    <button type="button" class="page-button" onclick="previousPage()">
+                        ← Previous
+                    </button>
+
+                    <span id="pageNumber">Page 1</span>
+
+                    <button type="button" class="page-button" onclick="nextPage()">
+                        Next →
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+            <p>© 2026 EduManage <span>•</span> Student Management System</p>
+            <p>Designed for smarter student management ✨</p>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- Existing JavaScript -->
+<script src="script.js"></script>
+
+</body> </html>
