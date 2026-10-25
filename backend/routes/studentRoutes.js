@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Student = require("../models/Student");
+const Student = require("../models/student");
 
 // Add Student
 router.post("/students", async (req, res) => {
@@ -75,8 +75,9 @@ router.get("/students", async (req, res) => {
     const skip = (page - 1) * limit;
 
     const students = await Student.find()
-      .skip(skip)
-      .limit(limit);
+  .sort({ _id: -1 })
+  .skip(skip)
+  .limit(limit);
 
     res.status(200).json(students);
 

@@ -1,4 +1,3 @@
-
 const express = require("express");
 const router = express.Router();
 
@@ -8,7 +7,7 @@ const Student = require("../models/student");
 
 
 // Test Attendance Route
-// GET /api/attendance/test
+
 
 router.get("/test", (req, res) => {
     res.send("Attendance Route Working");
@@ -16,7 +15,7 @@ router.get("/test", (req, res) => {
 
 
 // Mark Attendance
-// POST /api/attendance
+
 
 router.post("/", async (req, res) => {
     try {
@@ -105,7 +104,7 @@ router.post("/", async (req, res) => {
 
 
 // Get All Attendance Records
-// GET /api/attendance
+
 
 router.get("/", async (req, res) => {
     try {
@@ -127,7 +126,7 @@ router.get("/", async (req, res) => {
 
 
 // Get Attendance by Student ID
-// GET /api/attendance/student/:studentId
+
 
 router.get("/student/:studentId", async (req, res) => {
     try {
@@ -224,7 +223,7 @@ router.put("/:id", async (req, res) => {
 
 
 // Delete Attendance
-// DELETE /api/attendance/:id
+
 
 router.delete("/:id", async (req, res) => {
     try {

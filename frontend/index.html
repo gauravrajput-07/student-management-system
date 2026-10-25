@@ -1,27 +1,23 @@
+
 <!DOCTYPE html>
-
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduManage | Student Dashboard</title>
 
-<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<title>EduManage | Student Dashboard</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div class="app-layout">
 
-    <!-- SIDEBAR -->
+    <!-- Sidebar -->
     <aside class="sidebar">
-
         <a href="index.html" class="brand">
             <span class="brand-icon">🎓</span>
             <span>EduManage<span class="brand-dot">.</span></span>
@@ -30,7 +26,6 @@
         <p class="sidebar-label">MAIN MENU</p>
 
         <nav class="sidebar-nav">
-
             <a href="index.html" class="sidebar-link active">
                 <span class="sidebar-icon">▦</span>
                 <span>Dashboard</span>
@@ -50,7 +45,6 @@
                 <span class="sidebar-icon">✓</span>
                 <span>Attendance</span>
             </a>
-
         </nav>
 
         <div class="sidebar-bottom">
@@ -64,16 +58,13 @@
             Student Portal
             <span class="footer-version">v1.0</span>
         </div>
-
     </aside>
 
-
-    <!-- MAIN CONTENT -->
+    <!-- Main Content -->
     <main class="main-content">
 
-        <!-- TOP BAR -->
+        <!-- Top Header -->
         <header class="topbar">
-
             <div class="topbar-left">
                 <p class="breadcrumb">Pages / <strong>Dashboard</strong></p>
                 <h1>Student Dashboard</h1>
@@ -81,51 +72,45 @@
 
             <div class="topbar-right">
                 <div class="admin-avatar">A</div>
-
                 <div class="admin-info">
                     <strong>Administrator</strong>
                     <span>Management Portal</span>
                 </div>
             </div>
-
         </header>
 
-
-        <!-- WELCOME BANNER -->
+        <!-- Welcome Banner -->
         <section class="welcome-banner">
-
             <div class="welcome-content">
                 <span class="welcome-tag">YOUR MANAGEMENT SPACE</span>
-
                 <h2>Welcome Back! 👋</h2>
-
                 <p>
-                    Manage your students, organize records,
-                    and keep everything running smoothly.
+                    Manage your students, organize records, and keep everything
+                    running smoothly.
                 </p>
 
                 <a href="#studentForm" class="welcome-button">
-                    + Add New Student
+                    ＋ Add New Student
                 </a>
             </div>
 
             <div class="welcome-art" aria-hidden="true">
                 <div class="art-circle circle-one"></div>
                 <div class="art-circle circle-two"></div>
+
                 <div class="art-card">
                     <span class="art-cap">🎓</span>
                     <span class="art-lines"></span>
                     <span class="art-lines short-line"></span>
                     <span class="art-check">✓</span>
                 </div>
+
                 <div class="floating-star star-one">✦</div>
                 <div class="floating-star star-two">✧</div>
             </div>
-
         </section>
 
-
-        <!-- SECTION HEADING -->
+        <!-- Overview Heading -->
         <section class="section-heading">
             <div>
                 <h2>Overview</h2>
@@ -138,8 +123,7 @@
             </span>
         </section>
 
-
-        <!-- STATISTICS CARDS -->
+        <!-- Statistics Cards -->
         <section class="stats-grid">
 
             <article class="stat-card students-card">
@@ -154,7 +138,6 @@
                 <div class="stat-decoration"></div>
             </article>
 
-
             <article class="stat-card age-card">
                 <div class="stat-top">
                     <div class="stat-icon">📊</div>
@@ -166,7 +149,6 @@
                 <p class="stat-description">Average age of students</p>
                 <div class="stat-decoration"></div>
             </article>
-
 
             <article class="stat-card records-card">
                 <div class="stat-top">
@@ -182,8 +164,7 @@
 
         </section>
 
-
-        <!-- ADD STUDENT -->
+        <!-- Add Student Form -->
         <section class="content-panel" id="addStudentSection">
 
             <div class="panel-heading">
@@ -199,9 +180,7 @@
                 <span class="required-note">* Required fields</span>
             </div>
 
-
             <form id="studentForm">
-
                 <div class="form-grid">
 
                     <div class="form-group">
@@ -257,26 +236,24 @@
 
                 </div>
 
-
                 <div class="form-footer">
                     <p>🛡️ Student information is stored in your database.</p>
 
-                    <button type="submit" id="submitButton" class="primary-button">
-                        <span>＋</span>
-                        Add Student
+                    <button
+                        type="submit"
+                        id="submitButton"
+                        class="primary-button"
+                    >
+                        <span>＋</span> Add Student
                     </button>
                 </div>
-
             </form>
-
         </section>
 
-
-        <!-- STUDENT TABLE -->
+        <!-- Student Records -->
         <section class="content-panel student-list-panel" id="studentListSection">
 
             <div class="panel-heading student-list-heading">
-
                 <div class="panel-heading-left">
                     <div class="panel-icon blue-icon">☷</div>
 
@@ -286,16 +263,17 @@
                     </div>
                 </div>
 
-                <button type="button" class="secondary-button" onclick="getStudents()">
+                <button
+                    type="button"
+                    class="secondary-button"
+                    onclick="getStudents()"
+                >
                     ↻ Refresh Records
                 </button>
-
             </div>
 
-
-            <!-- SEARCH -->
+            <!-- Search Bar -->
             <div class="table-toolbar">
-
                 <div class="search-box">
                     <span class="search-icon">⌕</span>
 
@@ -307,16 +285,17 @@
                     >
                 </div>
 
-                <button type="button" class="primary-button search-button" onclick="searchStudents()">
+                <button
+                    type="button"
+                    class="primary-button search-button"
+                    onclick="searchStudents()"
+                >
                     Search
                 </button>
-
             </div>
 
-
-            <!-- TABLE -->
+            <!-- Student Table -->
             <div class="table-container">
-
                 <table>
                     <thead>
                         <tr>
@@ -337,46 +316,50 @@
                         </tr>
                     </tbody>
                 </table>
-
             </div>
 
-
-            <!-- PAGINATION -->
+            <!-- Pagination -->
             <div class="pagination">
-
-                <p class="pagination-note">
-                    Manage your student records
-                </p>
+                <p class="pagination-note">Manage your student records</p>
 
                 <div class="pagination-controls">
-                    <button type="button" class="page-button" onclick="previousPage()">
+                    <button
+                        type="button"
+                        class="page-button"
+                        onclick="previousPage()"
+                    >
                         ← Previous
                     </button>
 
                     <span id="pageNumber">Page 1</span>
 
-                    <button type="button" class="page-button" onclick="nextPage()">
+                    <button
+                        type="button"
+                        class="page-button"
+                        onclick="nextPage()"
+                    >
                         Next →
                     </button>
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- FOOTER -->
+        <!-- Footer -->
         <footer class="main-footer">
-            <p>© 2026 EduManage <span>•</span> Student Management System</p>
+            <p>
+                © 2026 EduManage
+                <span>•</span>
+                Student Management System
+            </p>
+
             <p>Designed for smarter student management ✨</p>
         </footer>
 
     </main>
-
 </div>
 
-
-<!-- Existing JavaScript -->
+<!-- JavaScript -->
 <script src="script.js"></script>
 
-</body> </html>
+</body>
+</html>

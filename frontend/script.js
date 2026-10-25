@@ -1,19 +1,18 @@
-javascript
-// ============================================
+
 // API CONFIGURATION
-// ============================================
+
 
 const API_URL = "http://localhost:5000/api/students";
 const ATTENDANCE_URL = "http://localhost:5000/api/attendance";
 
 let currentPage = 1;
-const limit = 3;
+const limit = 10;
 let editStudentId = null;
 
 
-// ============================================
+
 // COMMON HELPER FUNCTIONS
-// ============================================
+
 
 // Get today's date in YYYY-MM-DD format
 function getTodayDate() {
@@ -71,18 +70,18 @@ function extractAttendance(result) {
 }
 
 
-// ============================================
+
 // STUDENT MANAGEMENT PAGE
 // Runs only when student page elements exist
-// ============================================
+
 
 const studentForm = document.getElementById("studentForm");
 
 if (studentForm) {
 
-    // ========================================
+    
     // ADD OR UPDATE STUDENT
-    // ========================================
+    
 
     studentForm.addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -184,9 +183,9 @@ if (studentForm) {
     });
 
 
-    // ========================================
+    
     // LOAD STUDENTS AND DASHBOARD
-    // ========================================
+    
 
     async function getStudents() {
         try {
@@ -269,9 +268,9 @@ if (studentForm) {
     }
 
 
-    // ========================================
+    
     // DISPLAY STUDENT TABLE
-    // ========================================
+    
 
     function renderStudentTable(students) {
         const table = document.getElementById("studentTable");
@@ -340,9 +339,9 @@ if (studentForm) {
     }
 
 
-    // ========================================
+    
     // EDIT STUDENT
-    // ========================================
+    
 
     async function editStudent(id) {
         try {
@@ -392,9 +391,9 @@ if (studentForm) {
     }
 
 
-    // ========================================
+    
     // DELETE STUDENT
-    // ========================================
+    
 
     async function deleteStudent(id) {
         const confirmed = confirm(
@@ -427,9 +426,9 @@ if (studentForm) {
     }
 
 
-    // ========================================
+    
     // SEARCH STUDENTS
-    // ========================================
+    
 
     async function searchStudents() {
         const searchInput = document.getElementById("searchInput");
@@ -475,9 +474,9 @@ if (studentForm) {
     }
 
 
-    // ========================================
+    
     // PAGINATION
-    // ========================================
+    
 
     function nextPage() {
         currentPage++;
@@ -504,10 +503,10 @@ if (studentForm) {
 }
 
 
-// ============================================
+
 // ATTENDANCE MANAGEMENT PAGE
 // Runs only when attendance page elements exist
-// ============================================
+
 
 // Set today's date only if this page has a date input
 const attendanceDateInput =
@@ -518,9 +517,9 @@ if (attendanceDateInput) {
 }
 
 
-// ============================================
+
 // LOAD STUDENTS INTO ATTENDANCE DROPDOWN
-// ============================================
+
 
 async function loadStudentOptions() {
     const dropdown =
@@ -532,7 +531,7 @@ async function loadStudentOptions() {
 
     try {
         // Request all students rather than just the first page
-        const response = await fetch(API_URL);
+        const response = await fetch(API_URL + "?page=1&limit=1000");
 
         const result = await readResponse(response);
 
@@ -573,9 +572,9 @@ async function loadStudentOptions() {
 }
 
 
-// ============================================
+
 // ATTENDANCE FORM SUBMISSION
-// ============================================
+
 
 const attendanceForm =
     document.getElementById("attendanceForm");
@@ -637,9 +636,9 @@ if (attendanceForm) {
 }
 
 
-// ============================================
+
 // LOAD ALL ATTENDANCE RECORDS
-// ============================================
+
 
 async function loadAttendance() {
     const table = document.getElementById("attendanceTable");
@@ -674,9 +673,8 @@ async function loadAttendance() {
 }
 
 
-// ============================================
+
 // ATTENDANCE DASHBOARD
-// ============================================
 
 function updateAttendanceDashboard(records) {
     const totalElement =
@@ -710,9 +708,8 @@ function updateAttendanceDashboard(records) {
 }
 
 
-// ============================================
 // DISPLAY ATTENDANCE TABLE
-// ============================================
+
 
 function renderAttendanceTable(records) {
     const table = document.getElementById("attendanceTable");
@@ -810,9 +807,9 @@ function renderAttendanceTable(records) {
 }
 
 
-// ============================================
+
 // UPDATE ATTENDANCE STATUS
-// ============================================
+
 
 async function updateAttendance(id, status) {
     if (!confirm("Change attendance status to " + status + "?")) {
@@ -854,9 +851,9 @@ async function updateAttendance(id, status) {
 }
 
 
-// ============================================
+
 // DELETE ATTENDANCE
-// ============================================
+
 
 async function deleteAttendance(id) {
     if (!confirm("Are you sure you want to delete this attendance record?")) {
@@ -890,9 +887,9 @@ async function deleteAttendance(id) {
 }
 
 
-// ============================================
+
 // LOAD SELECTED STUDENT ATTENDANCE HISTORY
-// ============================================
+
 
 async function loadSelectedStudentAttendance() {
     const dropdown =
@@ -947,9 +944,9 @@ async function loadSelectedStudentAttendance() {
 }
 
 
-// ============================================
+
 // ATTENDANCE MESSAGE
-// ============================================
+
 
 function showAttendanceMessage(message, isError) {
     const element =
@@ -971,10 +968,10 @@ function showAttendanceMessage(message, isError) {
 }
 
 
-// ============================================
+
 // START APPLICATION
 // Initialize only the current page
-// ============================================
+
 
 async function initializeApp() {
     // Student Management page

@@ -1,120 +1,185 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Attendance Management System</title>
+    <title>Attendance Management System</title>
 
-<link rel="stylesheet" href="style.css">
-```
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-```
-<nav class="page-navigation">
-    <a href="index.html" class="nav-link">Student Management</a>
-    <a href="attendance.html" class="nav-link active">Attendance Management</a>
-</nav>
+    <!-- Navigation -->
+    <nav class="page-navigation">
+        <a href="index.html" class="nav-link">
+            Student Management
+        </a>
 
-<h1>Attendance Management System</h1>
+        <a href="attendance.html" class="nav-link active">
+            Attendance Management
+        </a>
+    </nav>
 
-<h2>Mark Student Attendance</h2>
+    <h1>Attendance Management System</h1>
 
-<form id="attendanceForm">
+    <!-- Mark Attendance Form -->
+    <h2>Mark Student Attendance</h2>
 
-    <label for="attendanceStudent">Select Student</label>
+    <form id="attendanceForm">
 
-    <select id="attendanceStudent" required>
-        <option value="">Loading students...</option>
-    </select>
+        <label for="attendanceStudent">Select Student</label>
 
-    <label for="attendanceDate">Attendance Date</label>
+        <select id="attendanceStudent" required>
+            <option value="">Loading students...</option>
+        </select>
 
-    <input
-        type="date"
-        id="attendanceDate"
-        required
-    >
+        <label for="attendanceDate">Attendance Date</label>
 
-    <label for="attendanceStatus">Attendance Status</label>
+        <input type="date" id="attendanceDate" required>
 
-    <select id="attendanceStatus" required>
-        <option value="">Select Status</option>
-        <option value="Present">Present</option>
-        <option value="Absent">Absent</option>
-    </select>
+        <label for="attendanceStatus">Attendance Status</label>
 
-    <button type="submit">Mark Attendance</button>
+        <select id="attendanceStatus" required>
+            <option value="">Select Status</option>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+        </select>
 
-</form>
+        <button type="submit">Mark Attendance</button>
 
-<p id="attendanceMessage" role="status"></p>
+    </form>
 
-<h2>Attendance Dashboard</h2>
+    <p id="attendanceMessage" role="status"></p>
 
-<div class="dashboard">
 
-    <div class="card">
-        <h3>Total Records</h3>
-        <p id="totalAttendance">0</p>
+    <!-- Attendance Dashboard -->
+    <h2>Attendance Dashboard</h2>
+
+    <div class="dashboard">
+
+        <div class="card">
+            <h3>Total Students</h3>
+            <p id="totalStudents">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Records</h3>
+            <p id="totalAttendance">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Present</h3>
+            <p id="totalPresent">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Absent</h3>
+            <p id="totalAbsent">0</p>
+        </div>
+
     </div>
 
-    <div class="card">
-        <h3>Total Present</h3>
-        <p id="totalPresent">0</p>
+
+    <!-- Student Attendance Percentage -->
+    <h2>Student Attendance Percentage</h2>
+
+    <div class="table-container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Roll Number</th>
+                    <th>Total Classes</th>
+                    <th>Present</th>
+                    <th>Absent</th>
+                    <th>Attendance Percentage</th>
+                </tr>
+            </thead>
+
+            <tbody id="attendancePercentageTable">
+                <tr>
+                    <td colspan="6">
+                        Loading attendance percentage...
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 
-    <div class="card">
-        <h3>Total Absent</h3>
-        <p id="totalAbsent">0</p>
+
+    <!-- Attendance Records -->
+    <h2>Attendance Records</h2>
+
+    <!-- Date Filter and Attendance Actions -->
+    <div class="attendance-actions">
+
+        <label for="filterAttendanceDate">
+            Filter by Date:
+        </label>
+
+        <input
+            type="date"
+            id="filterAttendanceDate"
+        >
+
+        <button
+            type="button"
+            onclick="filterAttendanceByDate()"
+        >
+            Filter Date
+        </button>
+
+        <button
+            type="button"
+            onclick="clearAttendanceDateFilter()"
+        >
+            Show All
+        </button>
+
+        <button
+            type="button"
+            onclick="loadSelectedStudentAttendance()"
+        >
+            View Selected Student History
+        </button>
+
     </div>
 
-</div>
 
-<h2>Attendance Records</h2>
+    <!-- Attendance Records Table -->
+    <div class="table-container">
 
-<div class="attendance-actions">
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Roll Number</th>
+                    <th>Class</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
 
-    <button type="button" onclick="loadAttendance()">
-        Load All Attendance
-    </button>
+            <tbody id="attendanceTable">
+                <tr>
+                    <td colspan="6">
+                        Loading attendance records...
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-    <button type="button" onclick="loadSelectedStudentAttendance()">
-        View Selected Student History
-    </button>
+    </div>
 
-</div>
 
-<div class="table-container">
-
-    <table>
-        <thead>
-            <tr>
-                <th>Student Name</th>
-                <th>Roll Number</th>
-                <th>Class</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-
-        <tbody id="attendanceTable">
-            <tr>
-                <td colspan="6">Loading attendance records...</td>
-            </tr>
-        </tbody>
-    </table>
-
-</div>
-
-<script src="attendance.js"></script>
-```
+    <!-- JavaScript -->
+    <script src="attendance.js"></script>
 
 </body>
 </html>
+this is attendance.html
