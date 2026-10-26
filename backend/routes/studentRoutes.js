@@ -3,6 +3,7 @@ const router = express.Router();
 const Student = require("../models/student");
 
 // Add Student
+
 router.post("/students", async (req, res) => {
   try {
     const { name, rollNumber, class: studentClass, section, age } = req.body;
@@ -47,6 +48,7 @@ router.post("/students", async (req, res) => {
 });
 
 // Get Total Students Count
+
 router.get("/students/count", async (req, res) => {
   try {
 
@@ -66,6 +68,7 @@ router.get("/students/count", async (req, res) => {
 });
 
 // Get All Students with Pagination
+
 router.get("/students", async (req, res) => {
   try {
 
@@ -91,6 +94,7 @@ router.get("/students", async (req, res) => {
 });
 
 // Search Student by Name
+
 router.get("/students/search/:name", async (req, res) => {
   try {
 
@@ -110,6 +114,7 @@ router.get("/students/search/:name", async (req, res) => {
 });
 
 // Search Student by Roll Number
+
 router.get("/students/rollNumber/:rollNumber", async (req, res) => {
   try {
 
@@ -135,6 +140,7 @@ router.get("/students/rollNumber/:rollNumber", async (req, res) => {
 });
 
 // Get Student By ID
+
 router.get("/students/:id", async (req, res) => {
   try {
 
@@ -158,6 +164,7 @@ router.get("/students/:id", async (req, res) => {
 });
 
 // Update Student
+
 router.put("/students/:id", async (req, res) => {
   try {
 
@@ -185,6 +192,7 @@ router.put("/students/:id", async (req, res) => {
 });
 
 // Delete Student
+
 router.delete("/students/:id", async (req, res) => {
   try {
 

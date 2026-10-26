@@ -1,7 +1,3 @@
-
-// API CONFIGURATION
-
-
 const API_URL = "http://localhost:5000/api/students";
 const ATTENDANCE_URL = "http://localhost:5000/api/attendance";
 
@@ -14,7 +10,7 @@ let editStudentId = null;
 // COMMON HELPER FUNCTIONS
 
 
-// Get today's date in YYYY-MM-DD format
+
 function getTodayDate() {
     const today = new Date();
 
@@ -27,6 +23,8 @@ function getTodayDate() {
 
 
 // Safely read JSON API responses
+
+
 async function readResponse(response) {
     const data = await response.json().catch(function () {
         return {};
@@ -42,7 +40,9 @@ async function readResponse(response) {
 }
 
 
-// Extract student arrays from different API response formats
+// Extract Student
+
+
 function extractStudents(result) {
     if (Array.isArray(result)) {
         return result;
@@ -56,7 +56,9 @@ function extractStudents(result) {
 }
 
 
-// Extract attendance arrays from different API response formats
+// Extract attendance 
+
+
 function extractAttendance(result) {
     if (Array.isArray(result)) {
         return result;
@@ -72,6 +74,7 @@ function extractAttendance(result) {
 
 
 // STUDENT MANAGEMENT PAGE
+
 // Runs only when student page elements exist
 
 
@@ -101,6 +104,8 @@ if (studentForm) {
         };
 
         // Basic form validation
+
+
         if (
             !student.name ||
             !student.class ||
@@ -201,6 +206,7 @@ if (studentForm) {
             const students = extractStudents(result);
 
             // Update student count
+
             const totalStudentsElement =
                 document.getElementById("totalStudents");
 
@@ -309,6 +315,7 @@ if (studentForm) {
             });
 
             // Action buttons
+
             const actionCell = document.createElement("td");
 
             const editButton = document.createElement("button");
@@ -493,6 +500,7 @@ if (studentForm) {
 
 
     // Make functions available to HTML buttons
+
     window.getStudents = getStudents;
     window.searchStudents = searchStudents;
     window.editStudent = editStudent;
@@ -505,6 +513,7 @@ if (studentForm) {
 
 
 // ATTENDANCE MANAGEMENT PAGE
+
 // Runs only when attendance page elements exist
 
 
@@ -676,6 +685,7 @@ async function loadAttendance() {
 
 // ATTENDANCE DASHBOARD
 
+
 function updateAttendanceDashboard(records) {
     const totalElement =
         document.getElementById("totalAttendance");
@@ -807,9 +817,7 @@ function renderAttendanceTable(records) {
 }
 
 
-
 // UPDATE ATTENDANCE STATUS
-
 
 async function updateAttendance(id, status) {
     if (!confirm("Change attendance status to " + status + "?")) {

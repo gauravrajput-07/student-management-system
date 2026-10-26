@@ -151,6 +151,7 @@ document.getElementById("attendanceForm").addEventListener(
 );
 
 // Load all attendance records
+
 async function loadAttendance() {
     try {
         const response = await fetch(ATTENDANCE_URL);
@@ -176,6 +177,7 @@ async function loadAttendance() {
 }
 
 // Update dashboard numbers
+
 function updateAttendanceDashboard(records) {
     const total = records.length;
 
@@ -300,6 +302,7 @@ async function filterAttendanceByDate() {
 }
 
 // Clear date filter and show all attendance
+
 async function clearAttendanceDateFilter() {
     document.getElementById("filterAttendanceDate").value = "";
     await loadAttendance();
@@ -341,7 +344,8 @@ async function loadSelectedStudentAttendance() {
     }
 }
 
-// Update attendance status
+// Update attendance record
+
 async function updateAttendance(id, status) {
     try {
         const response = await fetch(`${ATTENDANCE_URL}/${id}`, {
@@ -364,6 +368,7 @@ async function updateAttendance(id, status) {
 }
 
 // Delete attendance record
+
 async function deleteAttendance(id) {
     if (!confirm("Are you sure you want to delete this attendance record?")) {
         return;
@@ -385,7 +390,8 @@ async function deleteAttendance(id) {
     }
 }
 
-// Calculate attendance percentage for every student
+// Calculate attendance percentage
+
 async function loadAttendancePercentages() {
     const table =
         document.getElementById("attendancePercentageTable");
@@ -471,7 +477,7 @@ async function loadAttendancePercentages() {
     }
 }
 
-// Initialize attendance page
+
 async function initializeAttendancePage() {
     const attendanceDate = document.getElementById("attendanceDate");
 
@@ -486,7 +492,7 @@ async function initializeAttendancePage() {
     ]);
 }
 
-// Make functions available to HTML buttons
+
 window.loadAttendance = loadAttendance;
 window.filterAttendanceByDate = filterAttendanceByDate;
 window.clearAttendanceDateFilter = clearAttendanceDateFilter;
