@@ -1,6 +1,5 @@
-
-const API_URL = "http://localhost:5000/api/students";
-const ATTENDANCE_URL = "http://localhost:5000/api/attendance";
+const API_URL = "https://student-management-api-gnt1.onrender.com/api/students";
+const ATTENDANCE_URL = "https://student-management-api-gnt1.onrender.com/api/attendance";
 
 // Get today's date in YYYY-MM-DD format
 function getTodayDate() {
