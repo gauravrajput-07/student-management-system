@@ -24,4 +24,5 @@ A full-stack web application for managing student records and attendance.
 * **GitHub:** https://github.com/gauravrajput-07/student-management-system
 
 Author :
+
 Gaurav Singh
